@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ARIA — Personal Productivity Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="aria.css" />
+</head>
+<body>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">
+        <div class="logo-icon">⚡</div>
+        <span class="logo-text">ARIA</span>
+      </div>
+      <div class="logo-sub">Productivity Assistant</div>
+      <button class="new-chat-btn" id="newChatBtn">＋  Sesi baru</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="section-title">Mode</div>
+      <div class="mode-grid">
+        <button class="mode-btn active" data-mode="general">💬 Umum</button>
+        <button class="mode-btn" data-mode="schedule">📅 Jadwal</button>
+        <button class="mode-btn" data-mode="business">📊 Bisnis</button>
+        <button class="mode-btn" data-mode="decision">🎯 Keputusan</button>
+      </div>
+    </div>
+    <div class="sidebar-section">
+      <div class="section-title">Riwayat</div>
+      <div class="quick-topics" id="historyList">
+        <button class="topic-item" data-starter="Lanjutkan analisis strategi Q4"><span class="topic-dot"></span> Analisis strategi Q4</button>
+        <button class="topic-item" data-starter="Cek jadwal minggu ini"><span class="topic-dot"></span> Jadwal minggu ini</button>
+        <button class="topic-item" data-starter="Review vendor baru"><span class="topic-dot"></span> Review vendor baru</button>
+        <button class="topic-item" data-starter="OKR tim 2025"><span class="topic-dot"></span> OKR tim 2025</button>
+      </div>
+    </div>
+    <div class="sidebar-footer">
+      <div class="user-card">
+        <div class="user-avatar">U</div>
+        <div>
+          <div class="user-name">User</div>
+          <div class="user-status"><span class="status-dot"></span> Online</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="chat-header">
+      <div>
+        <div class="chat-title">ARIA — Personal Productivity Assistant</div>
+        <div class="chat-subtitle" id="chatSubtitle">Mode: Umum · Siap membantu Anda</div>
+      </div>
+      <div class="header-actions">
+        <button class="header-btn theme-toggle" id="themeToggleBtn" title="Toggle tema">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-label">Mode Terang</span>
+        </button>
+        <button class="header-btn" id="exportBtn">⬇ Export</button>
+        <button class="header-btn" id="togglePanelBtn">⚙ Panel</button>
+      </div>
+    </div>
+    <div class="messages-area" id="messagesArea"></div>
+    <div class="input-area">
+      <div class="input-wrapper">
+        <div class="input-toolbar">
+          <button class="toolbar-btn active" data-input-mode="smart">✨ Smart</button>
+          <button class="toolbar-btn" data-input-mode="schedule">📅 Jadwal</button>
+          <button class="toolbar-btn" data-input-mode="analysis">📊 Analisis</button>
+          <button class="toolbar-btn" data-input-mode="decision">🎯 Keputusan</button>
+        </div>
+        <textarea class="input-box" id="inputBox"
+          placeholder="Ketik pertanyaan atau permintaan Anda... (Enter kirim, Shift+Enter baris baru)"
+          rows="1"></textarea>
+        <div class="input-footer">
+          <span class="input-hint" id="inputHint">Smart Mode — ARIA mendeteksi konteks otomatis</span>
+          <button class="send-btn" id="sendBtn" disabled>➤</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="right-panel" id="rightPanel">
+    <div class="panel-section">
+      <div class="panel-title">Statistik Hari Ini</div>
+      <div class="stat-grid">
+        <div class="stat-box accent-blue"><div class="stat-value">7</div><div class="stat-label">Tugas aktif</div></div>
+        <div class="stat-box accent-green"><div class="stat-value">3</div><div class="stat-label">Selesai</div></div>
+        <div class="stat-box accent-amber"><div class="stat-value">2</div><div class="stat-label">Meeting</div></div>
+        <div class="stat-box accent-purple"><div class="stat-value">4j</div><div class="stat-label">Focus time</div></div>
+      </div>
+    </div>
+    <div class="panel-section">
+      <div class="panel-title">Jadwal Hari Ini</div>
+      <div class="schedule-mini">
+        <div class="sched-item" data-starter="Apa yang perlu saya persiapkan untuk Briefing Tim jam 09:00?">
+          <div class="sched-dot"></div>
+          <div><div class="sched-name">Briefing Tim</div><div class="sched-time">09:00 — 09:30</div></div>
+        </div>
+        <div class="sched-item" data-starter="Tips untuk Review Produk jam 11:00 yang efektif?">
+          <div class="sched-dot sched-dot--green"></div>
+          <div><div class="sched-name">Review Produk</div><div class="sched-time">11:00 — 12:00</div></div>
+        </div>
+        <div class="sched-item" data-starter="Bantu saya persiapkan Presentasi Klien jam 15:00">
+          <div class="sched-dot sched-dot--amber"></div>
+          <div><div class="sched-name">Presentasi Klien</div><div class="sched-time">15:00 — 16:00</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="panel-section">
+      <div class="panel-title">Topik Cepat</div>
+      <div class="tag-list">
+        <span class="tag" data-starter="Buat laporan ringkasan harian untuk hari ini">Laporan Harian</span>
+        <span class="tag" data-starter="Prioritaskan tugas-tugas saya hari ini berdasarkan urgensi">Prioritas Tugas</span>
+        <span class="tag" data-starter="Analisis risiko proyek terbaru dan cara mitigasinya">Risiko Proyek</span>
+        <span class="tag" data-starter="Buat template agenda meeting yang efektif">Agenda Meeting</span>
+        <span class="tag" data-starter="Berikan tips manajemen waktu yang efektif untuk saya">Time Management</span>
+        <span class="tag" data-starter="Strategi komunikasi tim yang lebih efektif">Komunikasi Tim</span>
+      </div>
+    </div>
+    <div class="panel-section">
+      <div class="panel-title">Konteks Pengguna</div>
+      <div id="userContext" class="context-placeholder">Belum ada konteks. Mulai percakapan untuk personalisasi.</div>
+    </div>
+  </aside>
+
+  <script src="aria.js"></script>
+</body>
+</html>

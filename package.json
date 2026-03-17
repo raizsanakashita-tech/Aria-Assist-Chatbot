@@ -1,0 +1,13 @@
+{
+  "name": "aria-productivity-assistant",
+  "version": "2.0.0",
+  "description": "ARIA — Personal Productivity Assistant (Google Gemini Edition)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev":   "node --watch server.js"
+  },
+  "keywords": ["chatbot", "productivity", "gemini", "google-ai", "assistant"],
+  "license": "MIT",
+  "engines": { "node": ">=18.0.0" }
+}
